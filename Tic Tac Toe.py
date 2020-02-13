@@ -64,8 +64,8 @@ while playing_game :
     
     row_complete = (game[move_x][0] == game[move_x][1] == game[move_x][2])
     column_complete = (game[0][move_y] == game[1][move_y] == game[2][move_y])
-    diagonal_rl_complete = (game[0][0] == game[1][1] == game[2][2])
-    diagonal_lr_complete = (game[2][0] == game[1][1] == game[0][2])
+    diagonal_rl_complete = (game[0][0] == game[1][1] == game[2][2] and game[0][0] != " "  and game[1][1] != " "  and game[2][2] != " " )
+    diagonal_lr_complete = (game[2][0] == game[1][1] == game[0][2] and game[2][0] != " "  and game[1][1] != " "  and game[0][2] != " " )
     
     if row_complete or column_complete or diagonal_rl_complete or diagonal_lr_complete:
         
