@@ -69,6 +69,8 @@ while playing_game :
     
     if row_complete or column_complete or diagonal_rl_complete or diagonal_lr_complete:
         
+        draw_board()
+        
         if token == "x":
             print("Player one wins")
         else:
@@ -77,7 +79,21 @@ while playing_game :
         
         cont = input("Press any key to continue")
         
+        game = [[" ", " ", " "],
+                [" ", " ", " "],
+                [" ", " ", " "]]
+
         
+    if game[0][0] != " "  and game[0][1] != " "  and game[0][2] != " " and game[1][0] != " "  and game[1][1] != " "  and game[1][2] != " " and game[2][0] != " "  and game[2][1] != " "  and game[2][2] != " " :
+    
+        print("Game drawn")
+        cont = input("Press any key to continue")
+        
+
+        game = [[" ", " ", " "],
+                [" ", " ", " "],
+                [" ", " ", " "]]
+         
     
         
     if token == "x":
