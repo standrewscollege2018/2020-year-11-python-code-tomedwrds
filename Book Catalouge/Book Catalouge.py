@@ -9,9 +9,9 @@ def display_book_list():
         
         #Print book information
         print(catalouge[x][NAME] + " ({}/{})".format(x+1,len(catalouge)))
-        print("By: {}".format(AUTHOUR))
-        print("Price: {}".format(PRICE))   
-        print("Stock: {}".format(STOCK))
+        print("By: {}".format(catalouge[x][AUTHOUR]))
+        print("Price: {}".format(catalouge[x][PRICE]))   
+        print("Stock: {}".format(catalouge[x][STOCK]))
         
         #Break a line for redability
 
@@ -28,8 +28,35 @@ STOCK = 3
 book_index = 0
 
 
+#Read the file and store it
+book_catalouge = open("book_catalouge_storage.txt","r") 
+
+
+
+
 
 catalouge = []
+
+
+for i, line in enumerate(book_catalouge):
+
+    if i % 4 == 0:
+        title = line.rstrip()
+    elif i % 4 == 1:
+        authour = line.rstrip()
+    elif i % 4 == 2:
+        price = int(line)
+    elif i % 4 == 3:
+        stock = int(line)
+        catalouge.append([title,authour,price,stock])
+        
+    
+
+
+
+
+
+
 
 running_program = True
 OPTION_NUMBERS = 5
@@ -300,5 +327,15 @@ while(running_program):
     #Display book list   
     if user_input == 4:
         display_book_list()
+    #Save book list and exit
+    if user_input == 5:
+        book_catalouge = open("book_catalouge_storage.txt","w") 
+        with book_catalouge as f:
+            for book in catalouge:
+                    f.write("%s\n" % book[NAME])
+                    f.write("%s\n" % book[AUTHOUR])
+                    f.write("%s\n" % book[PRICE])
+                    f.write("%s\n" % book[STOCK])
+        
         
 
