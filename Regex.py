@@ -1,6 +1,5 @@
 import re
 
-
 #Take users data
 
 data = input("Please enter your first and last name: ")
